@@ -36,6 +36,9 @@ public class  HardwareManager {
 
     // Intake Mechanism Servo
     public Servo boot;
+    // Foundation Grabber Servos
+    public Servo rightFoundationGrabber;
+    public Servo leftFoundationGrabber;
 
     public HardwareManager(HardwareMap hardwareMap) {
         this.hardwareMap = hardwareMap;
@@ -43,6 +46,7 @@ public class  HardwareManager {
         initGrabber();
         initColorSensor();
         initIntake();
+        initFoundationGrabbers();
     }
 
     private void initDriveTrain() {
@@ -70,5 +74,9 @@ public class  HardwareManager {
         rightIntakeMotor = hardwareMap.get(DcMotor.class, HardwareNames.rightIntakeMotor);
         leftIntakeMotor = hardwareMap.get(DcMotor.class, HardwareNames.leftIntakeMotor);
         boot = hardwareMap.get(Servo.class, HardwareNames.bootServo);
+    }
+    private void initFoundationGrabbers() {
+        rightFoundationGrabber = hardwareMap.get(Servo.class, HardwareNames.rightFoundationGrabber);
+        leftFoundationGrabber = hardwareMap. get(Servo.class, HardwareNames.leftFoundationGrabber);
     }
 }

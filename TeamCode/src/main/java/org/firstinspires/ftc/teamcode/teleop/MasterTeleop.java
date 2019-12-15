@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.hardware.hardwareutils.HardwareManager;
 import org.firstinspires.ftc.teamcode.subsystems.Elevator;
+import org.firstinspires.ftc.teamcode.subsystems.FoundationGrabber;
 import org.firstinspires.ftc.teamcode.subsystems.Grabber;
 import org.firstinspires.ftc.teamcode.subsystems.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.TwinstickMecanum;
@@ -34,8 +35,9 @@ public class MasterTeleop extends OpMode {
         Subsystem elevator = setUpElevator();
         Subsystem grabber = setupGrabber();
         Subsystem intake = setupIntake();
+        Subsystem foundationGrabber = setupFoundationGrabber();
 
-        subsystems = new SubsystemManager(drive, elevator, grabber, intake);
+        subsystems = new SubsystemManager(drive, elevator, grabber, intake, foundationGrabber);
         subsystems.init();
 
     }
@@ -78,6 +80,13 @@ public class MasterTeleop extends OpMode {
                 manipController,
                 hardware.latch,
                 hardware.blockPanServo
+        );
+    }
+    private Subsystem setupFoundationGrabber() {
+        return new FoundationGrabber(
+                driveController,
+                hardware.rightFoundationGrabber,
+                hardware.leftFoundationGrabber
         );
     }
 }

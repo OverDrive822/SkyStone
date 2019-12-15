@@ -26,4 +26,8 @@ public class HardwareNames {
 
     // color sensor
     public static final String colorSensor = "colorSensor";
+
+    //foundation grabbers
+    public static final String rightFoundationGrabber = "rightFoundationGrabber";
+    public static final String leftFoundationGrabber = "leftFoundationGrabber";
 }
